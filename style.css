@@ -3,12 +3,12 @@ html {
   overflow: auto;
   height: 100vh;
   margin: 0;
-  padding: 0;
 }
 
 body {
   display: grid;
   grid-template-columns: 1fr 5fr;
+
   /* grid-template-rows: repeat(auto-fit, minMax(200px, 1fr)); */
   grid-template-areas:
     "sidebar header"
@@ -42,7 +42,7 @@ body {
 }
 
 .main-content {
-  height: 100%;
+  padding: 30px;
   grid-area: main;
   background-color: black;
   /* box-shadow: 0px 0 8px rgba(0, 0, 0, 0.8); */
