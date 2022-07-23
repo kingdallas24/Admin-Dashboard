@@ -19,9 +19,10 @@ body {
 }
 
 .header {
+  background: black;
+  color: white;
   grid-area: header;
   display: grid;
-  margin-bottom: 10px;
 }
 
 .search {
@@ -31,7 +32,7 @@ body {
 }
 
 .sidebar {
-  background-color: #1992d3;
+  background: radial-gradient(#2dd4bf, #10b981, #155e75);
 
   grid-area: sidebar;
   display: flex;
@@ -41,12 +42,13 @@ body {
 }
 
 .main-content {
+  height: 100%;
   grid-area: main;
-  background-color: #e2e8f0;
+  background-color: black;
   /* box-shadow: 0px 0 8px rgba(0, 0, 0, 0.8); */
   display: grid;
   gap: 10px;
-  grid-template-columns: 1.5fr 1.5fr 1fr;
+  grid-template-columns: repeat(auto-fit, minMax(300px, 1fr));
 }
 
 ul {
@@ -90,7 +92,9 @@ h1 > img {
 
 #search {
   display: grid;
-  background-color: #e2e8f0;
+  background: radial-gradient(#2dd4bf, #10b981, #155e75);
+  color: white;
+  font-size: 1.5rem;
   border-radius: 35px;
   margin-left: 10px;
   outline: none;
@@ -174,7 +178,7 @@ h1 > img {
 
 .user {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1vw + 1rem, 2rem);
 }
 
 .btn-container {
@@ -192,16 +196,13 @@ button {
   border-radius: 35px;
   padding: 0.8vw;
   width: 5vw;
-  background-color: #1992d3;
+  background: radial-gradient(#2dd4bf, #10b981, #155e75);
   color: white;
 }
 
 button:hover {
   transform: scale(1.1);
   cursor: pointer;
-  background: white;
-  border: 1px solid #1992d3;
-  color: #1992d3;
 }
 
 .mikasa {
@@ -213,7 +214,7 @@ button:hover {
   display: grid;
   gap: 15px;
   padding: 10px 0 10px 10px;
-  grid-template-rows: 50px 1fr 1fr 1fr;
+  grid-template-rows: 50px 0.5fr 0.5fr 0.5fr;
   grid-template-columns: 1fr;
   justify-content: center;
 }
@@ -224,10 +225,10 @@ h3 {
 }
 
 .projects div {
-  background-color: white;
+  background-color: black;
   border-radius: 10px;
   padding: 20px;
-  border-left: 10px solid #f0b429;
+
   display: grid;
   grid-template-rows: 20px 1fr 50px;
 }
@@ -247,6 +248,7 @@ h3 {
 
 .projects p {
   margin: 5px 0 0 0;
+  color: #919191;
 }
 
 .column2 {
@@ -259,21 +261,22 @@ h3 {
 }
 
 .column2 p {
+  color: #919191;
   margin: 5px 0 0 0;
 }
 
 .column2 div {
-  background-color: white;
+  background-color: black;
   border-radius: 10px;
   padding: 20px;
-  border-left: 10px solid #f0b429;
+
   display: grid;
   grid-template-rows: 20px 1fr 50px;
 }
 
 .announcements {
   display: grid;
-  grid-template-rows: 50px 0.5fr 50px 1fr;
+  grid-template-rows: 50px 1fr 50px 1fr;
   grid-template-columns: 0.9fr;
   gap: 15px;
   padding: 10px 0 10px 10px;
@@ -288,6 +291,7 @@ h3 {
 }
 
 .announcements p {
+  color: #919191;
   margin: 0;
   padding: 0;
   font-size: 0.9rem;
@@ -333,4 +337,181 @@ h4 {
 
 .trending * {
   border: none !important;
+}
+
+.projects p,
+h3,
+img {
+  position: relative;
+  z-index: 10;
+}
+
+.projects div {
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.projects div::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 300%;
+
+  margin-left: auto;
+  margin-right: auto;
+  top: -200px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: radial-gradient(#2dd4bf, #10b981, #155e75);
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.projects div::before {
+  content: "";
+  background: black;
+  position: absolute;
+  z-index: 2;
+
+  inset: 5px;
+}
+
+h2 {
+  color: white;
+}
+
+.column2 {
+  overflow: hidden;
+}
+
+.column2 p,
+h3,
+img {
+  position: relative;
+  z-index: 10;
+}
+
+.column2 div {
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.column2 div::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 300%;
+
+  margin-left: auto;
+  margin-right: auto;
+  top: -200px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: radial-gradient(#2dd4bf, #10b981, #155e75);
+  animation: animate 4s linear infinite;
+}
+
+.column2 div::before {
+  content: "";
+  background: black;
+  position: absolute;
+  z-index: 2;
+
+  inset: 5px;
+}
+
+.announcements div {
+  background: black;
+  color: white;
+}
+
+.div2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.div2 div::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 300%;
+
+  margin-left: auto;
+  margin-right: auto;
+  top: -200px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: radial-gradient(#2dd4bf, #10b981, #155e75);
+  animation: animate 4s linear infinite;
+}
+
+.div2 p,
+h3,
+h4,
+img {
+  position: relative;
+  z-index: 10;
+}
+
+.div2::before {
+  content: "";
+  background: black;
+  position: absolute;
+  z-index: 2;
+
+  inset: 5px;
+}
+
+.trending {
+  position: relative;
+  overflow: hidden;
+}
+
+.trending::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 300%;
+
+  margin-left: auto;
+  margin-right: auto;
+  top: -200px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: radial-gradient(#2dd4bf, #10b981, #155e75);
+  animation: animate 4s linear infinite;
+}
+
+.trending::before {
+  content: "";
+  background: black;
+  position: absolute;
+  z-index: 2;
+
+  inset: 5px;
+}
+
+.trending p,
+h3,
+h4,
+img,
+span {
+  position: relative;
+  z-index: 10;
+  color: white;
 }
